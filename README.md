@@ -8,7 +8,6 @@
   <img src="https://img.shields.io/badge/electron-37-47848f?style=flat-square&logo=electron&logoColor=white" alt="Electron 37">
   <img src="https://img.shields.io/badge/platform-Windows-0078D6?style=flat-square&logo=windows&logoColor=white" alt="Windows">
   <img src="https://img.shields.io/badge/ui-HTML%20%7C%20CSS%20%7C%20JavaScript-5865F2?style=flat-square" alt="HTML, CSS, and JavaScript UI">
-  <img src="https://img.shields.io/badge/window-custom%20title%20bar-111111?style=flat-square" alt="Custom title bar">
 </p>
 
 <p align="center">
