@@ -75,3 +75,5 @@ Windows packaging is configured through [package.json](./package.json) with `ele
 
 - `nsis`
 - `portable`
+
+# Hypesquad-Revived

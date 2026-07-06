@@ -1,0 +1,72 @@
+{
+  "name": "discord-hypesquad-manager",
+  "version": "1.0.0",
+  "description": "Desktop utility for viewing and updating Discord HypeSquad house badges.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "build": "electron-builder",
+    "test": "node tests/app-logic.test.js"
+  },
+  "keywords": [
+    "electron",
+    "discord",
+    "hypesquad"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^37.2.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.hypesquadrevived.manager",
+    "productName": "Discord HypeSquad Badge Manager",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "index.html",
+      "app-logic.js",
+      "app-squircle.js",
+      "main.js",
+      "preload.js",
+      "script.js",
+      "style.css",
+      "images/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "images/logo.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Discord HypeSquad Badge Manager"
+    }
+  },
+  "allowScripts": {
+    "electron@37.10.3": true,
+    "electron-winstaller@5.4.0": true
+  },
+  "dependencies": {
+    "figma-squircle": "^1.1.0"
+  }
+}

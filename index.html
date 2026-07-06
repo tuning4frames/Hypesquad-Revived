@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discord HypeSquad Badge Manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="titlebar">
+    <div class="titlebar-brand">
+      <img src="images/hypesquad-wing.svg" alt="" class="titlebar-logo">
+    </div>
+    <div class="titlebar-actions">
+      <button id="minimizeWindowBtn" type="button" class="titlebar-button" aria-label="Minimize window">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M5 12.5h14" />
+        </svg>
+      </button>
+      <button id="maximizeWindowBtn" type="button" class="titlebar-button" aria-label="Maximize window">
+        <svg class="maximize-icon maximize-icon-expand" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7 7h10v10H7z" />
+        </svg>
+        <svg class="maximize-icon maximize-icon-restore hidden" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M9 7h8v8" />
+          <path d="M7 9h8v8H7z" />
+        </svg>
+      </button>
+      <button id="closeWindowBtn" type="button" class="titlebar-button titlebar-button-close" aria-label="Close window">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7 7l10 10" />
+          <path d="M17 7 7 17" />
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div class="app" data-squircle data-squircle-radius="16" data-squircle-smoothing="0.8">
+    <header class="header">
+      <h1>HypeSquad Badge Manager</h1>
+      <p>Manage your Discord HypeSquad house badge</p>
+    </header>
+
+    <div id="loginSection" class="token-inline">
+      <label class="sr-only" for="token">Discord Token</label>
+      <div class="token-input-wrap" data-squircle data-squircle-radius="16" data-squircle-smoothing="0.94">
+        <input
+          id="token"
+          type="password"
+          placeholder="Paste your Discord token here"
+          autocomplete="off"
+          spellcheck="false"
+        >
+        <button id="toggleToken" type="button" class="icon-toggle" aria-label="Show token">
+          <svg class="toggle-icon toggle-icon-show" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M1.5 12s3.8-6 10.5-6 10.5 6 10.5 6-3.8 6-10.5 6S1.5 12 1.5 12Z" />
+            <circle cx="12" cy="12" r="3.2" />
+          </svg>
+          <svg class="toggle-icon toggle-icon-hide hidden" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 3l18 18" />
+            <path d="M10.6 10.7A3 3 0 0 0 15 15" />
+            <path d="M9.9 5.1A12.5 12.5 0 0 1 12 5c6.7 0 10.5 6 10.5 6a18 18 0 0 1-3.6 4.3" />
+            <path d="M6.2 6.3C3.3 8.2 1.5 11 1.5 11s3.8 6 10.5 6c1.8 0 3.4-.4 4.8-1" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <section id="profileSection" class="hidden">
+      <div class="profile-row" data-squircle data-squircle-radius="16" data-squircle-smoothing="0.88">
+        <img id="userAvatar" class="avatar" src="" alt="Discord avatar">
+        <div class="profile-info">
+          <span class="profile-label">Connected as</span>
+          <div class="username-wrap">
+            <strong id="username"></strong>
+          </div>
+        </div>
+        <button id="logoutBtn" type="button" class="btn btn-danger logout-action" aria-label="Logout" data-squircle data-squircle-radius="16" data-squircle-smoothing="0.94">
+          <svg class="logout-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M10 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h4" />
+            <path d="M14 16l4-4-4-4" />
+            <path d="M18 12H9" />
+          </svg>
+          <span>Logout</span>
+        </button>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div id="status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+      </div>
+      <div class="badge-row">
+        <button type="button" class="badge-option" data-house="2" data-squircle data-squircle-radius="16" data-squircle-smoothing="0.88">
+          <img src="images/hypesquadbravery.svg" alt="Bravery badge icon">
+          <span>Bravery</span>
+        </button>
+        <button type="button" class="badge-option" data-house="3" data-squircle data-squircle-radius="16" data-squircle-smoothing="0.88">
+          <img src="images/hypesquadbrilliance.svg" alt="Brilliance badge icon">
+          <span>Brilliance</span>
+        </button>
+        <button type="button" class="badge-option" data-house="1" data-squircle data-squircle-radius="16" data-squircle-smoothing="0.88">
+          <img src="images/hypesquadbalance.svg" alt="Balance badge icon">
+          <span>Balance</span>
+        </button>
+      </div>
+    </section>
+
+    <div class="action-block">
+      <div class="action-row">
+        <div class="primary-action">
+          <button id="setBadge" class="btn btn-primary" type="button" disabled data-squircle data-squircle-radius="16" data-squircle-smoothing="0.92">
+            <span>Add Badge</span>
+            <span id="loading" class="spinner hidden" aria-hidden="true"></span>
+          </button>
+        </div>
+        <button id="removeBadge" class="btn btn-outline" type="button" data-squircle data-squircle-radius="16" data-squircle-smoothing="0.92">Remove Badge</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app-logic.js"></script>
+  <script src="app-squircle.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
