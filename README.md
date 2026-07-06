@@ -12,10 +12,6 @@
 </p>
 
 <p align="center">
-  Electron rebuild of a small HypeSquad badge manager based on <a href="./REBUILD_SPEC.md">REBUILD_SPEC.md</a>.
-</p>
-
-<p align="center">
   <img src="./assets/readme/app-preview.png" alt="Discord HypeSquad Badge Manager desktop preview">
 </p>
 
